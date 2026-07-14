@@ -35,12 +35,12 @@ bo4_toggleaimbot()
     if (isDefined(self.aimbot))
     {
         self thread bo4_AimBot();
-        self iPrintLn("Aimbot ^2Enabled");
+        self iPrintLn("自动瞄准已^2开启");
     } 
     else 
     {
         self notify("StopAimbotting");
-        self iPrintLn("Aimbot ^1Disabled");
+        self iPrintLn("自动瞄准已^1关闭");
     }
 }
 
@@ -142,13 +142,13 @@ FloatingZombies()
     {
         self.FloatingZombies = true;
         setDvar("phys_gravity", 100);
-        self iPrintLn("Newtonian Negation ^2Enabled");
+        self iPrintLn("低重力僵尸已^2开启");
     }
     else 
     {
         self.FloatingZombies = undefined;
         setDvar("phys_gravity", 800);
-        self iPrintLn("Newtonian Negation ^1Disabled");
+        self iPrintLn("低重力僵尸已^1关闭");
     }
 }
 
@@ -157,7 +157,7 @@ ForceHostToggle()
     self.ForcingTheHost = isDefined(self.ForcingTheHost) ? undefined : true;
     if(isDefined(self.ForcingTheHost))
     {
-    self iPrintLn("Force Host ^2ON");
+    self iPrintLn("强制房主已^2开启");
     if(getDvarString("party_connectTimeout") != "0")
     {
         SetDvar("lobbySearchListenCountries", "0,103,6,5,8,13,16,23,25,32,34,24,37,42,44,50,71,74,76,75,82,84,88,31,90,18,35");
@@ -182,7 +182,7 @@ ForceHostToggle()
     } 
     else 
     {
-        self iPrintLn("Force Host ^1OFF");
+        self iPrintLn("强制房主已^1关闭");
         SetDvar("lobbySearchListenCountries", "");
         SetDvar("excellentPing", 30);
         SetDvar("goodPing", 100);
@@ -217,16 +217,16 @@ SaveLocation(Val)
         if(!IsDefined(self.SaveLocTog))
             self.SaveLocTog = true;
             
-        self iPrintLn("Current Position: ^2Saved");
+        self iPrintLn("当前位置已^2保存");
     }
     else if(Val == 1)
     {
         if(!IsDefined(self.SaveLocTog))
-            return self iPrintLn("^1Error: ^7No Location Saved");
+            return self iPrintLn("^1错误：^7尚未保存位置");
             
         self SetPlayerAngles(self.SaveLocationAngle);
         self SetOrigin(self.SaveLocation);
-        self iPrintLn("Saved Position: ^2Loaded");
+        self iPrintLn("已^2载入保存的位置");
     }
     else
     {

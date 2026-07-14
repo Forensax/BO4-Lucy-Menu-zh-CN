@@ -18,14 +18,14 @@ InitializeVarsPrecaches()
         return;
     level.InitializeVarsPrecaches = true;
     level._Weaps = GetArrayKeys(level.zombie_weapons);//Currently Unused, but once I map out the StringTables I plan to use this in the Weapons Menu
-    level.menuName = "The Lucy Menu";
+    level.menuName = "Lucy 菜单";
     level.menuDeveloper = "MrFawkes1337";
     level.AutoVerify = 0;
-    level.lucyVersion = "1.5.0";
-    level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
+    level.lucyVersion = "1.5.0-zh-CN";
+    level.MenuStatus = StrTok("无权限,已验证,VIP,协管,管理员,房主,开发者", ",");
     level._PowerupStrings = StrTok("full_ammo,fire_sale,bonus_points_player,free_perk,nuke,hero_weapon_power,insta_kill,double_points,carpenter,bonfire_sale", ",");
-    level._PowerupNames = StrTok("Max Ammo,Fire Sale,Bonus Points,Free Perk,Nuke,Full Power,Insta Kill,Double Points,Carpenter,Bonfire Sale",",");
-    level._WeaponCategs = StrTok("Assault Rifles,Submachine Guns,Tactical Rifles,Light Machine Guns,Sniper Rifles,Pistols,Shotguns,Special Weapons,Map Specific Weapons", ",");
+    level._PowerupNames = StrTok("最大弹药,促销,免费点数,免费技能,核弹,充能完毕,秒杀,双倍点数,木匠,强化促销",",");
+    level._WeaponCategs = StrTok("突击步枪,冲锋枪,战术步枪,轻机枪,狙击步枪,手枪,霰弹枪,特殊武器,地图专属武器", ",");
     level._WeaponCategs2 = StrTok("Assault Rifles,SMG,Tactical Rifles,LMG,Sniper Rifles,Pistols,Shotguns,Special Weapons,Map Specific Weapons and items", ",");
     level._WeaponCategs3 = StrTok("Upgraded AR,Upgraded SMG,Upgraded TR,Upgraded LMG,Upgraded SR,Upgraded Pistols,Upgraded Shotguns,Upgraded Specials", ",");
     level._AssaultStrings = StrTok("ar_accurate_t8,ar_fastfire_t8,ar_damage_t8,ar_stealth_t8,ar_modular_t8,ar_mg1909_t8,ar_standard_t8,ar_galil_t8,ar_peacekeeper_t8,ar_doublebarrel_t8,ar_an94_t8",",");
@@ -50,7 +50,7 @@ InitializeVarsPrecaches()
     level._ShotgunNames   = StrTok("Mog 12,SG12,Trenchgun,Rampage,Argus", ",");
     level._UpgShotgunNames = StrTok("OMG Right Hook,Breccius Rebornus,M9-TKG Home Wrecker,Surgical Havoc,Ancient Harbinger", ",");
     level._SpecialStrings = StrTok("launcher_standard_t8,minigun,special_ballisticknife_t8_dw,special_crossbow_t8,bowie_knife", ",");
-    level._SpecialNames   = StrTok("Give Hellion Salvo,Give Minigun,Ballistic Knife,Crossbow,Bowie Knife", ",");
+    level._SpecialNames   = StrTok("获得 Hellion Salvo,获得 Minigun,Ballistic Knife,Crossbow,Bowie Knife", ",");
     level._UpgSpecialStrings = StrTok("launcher_standard_t8_upgraded,special_ballisticknife_t8_dw_upgraded,special_crossbow_t8_upgraded", ",");
     level._UpgSpecialNames = StrTok("Zitros Orbital Arbalest,TheKrauss Refibrillator++,Minos Zeal", ",");
     level._BloodWeaps = StrTok("ww_blundergat_t8,ww_blundergat_fire_t8,ww_blundergat_acid_t8,zhield_spectral_dw,spoon_alcatraz,spork_alcatraz,tomahawk_t8",",");
@@ -83,18 +83,23 @@ InitializeVarsPrecaches()
     level._MapWeapsAetherNames   = StrTok("Ray Gun,Ray Gun Mk2,Monkey Bombs", ",");
     level._UpgMapWeapsAetherNames   = StrTok("Porters X2 Ray Gun,Porters Mark II Ray Gun,Monkey Bombs", ",");
     level._MegaElixirs = StrTok("shopping_free,head_drama,secret_shopper,reign_drops,power_vacuum,near_death_experience,phoenix_up,conflagration_liquidation,join_the_party,perkaholic,refresh_mint,suit_up,wall_power",",");
+    level._MegaElixirNames = StrTok("免费购物,爆头戏法,秘密采购,天降好礼,强力吸附,濒死体验,凤凰重生,烈火清仓,加入派对,全技能狂,清新薄荷,全副武装,墙上火力",",");
     level._MegaTypes  = StrTok("2,2,2,1,2,2,1,1,1,1,1,1,2",",");
     level._LegendaryElixirs = StrTok("cache_back,dividend_yield,free_fire,perk_up,power_keg,wall_to_wall_clearance,undead_man_walking",",");
+    level._LegendaryElixirNames = StrTok("弹药返还,红利收益,自由开火,技能升级,强力酒桶,墙面清仓,亡灵漫步",",");
     level._LegendaryTypes = StrTok("1,2,2,1,1,2,2",",");
     level._RareElixirs = StrTok("alchemical_antithesis,blood_debt,extra_credit,immolation_liquidation,kill_joy,shields_up,talkin_bout_regeneration",",");
+    level._RareElixirNames = StrTok("炼金反转,血债,额外奖励,烈焰清仓,杀戮快感,护盾强化,快速恢复",",");
     level._RareTypes = StrTok("1,2,1,1,1,1,2",",");
     level._CommonElixirs = StrTok("bullet_boost,ctrl_z,dead_of_nuclear_winter,in_plain_sight,licensed_contractor,phantom_reload,sword_flay,whos_keeping_score",",");
+    level._CommonElixirNames = StrTok("弹药强化,撤销,核冬天之死,众目睽睽,特许承包商,幻影装填,利刃强化,谁在计分",",");
     level._CommonTypes = StrTok("1,2,1,1,1,2,2,1",",");
     level._ClassicElixirs = StrTok("always_done_swiftly,anywhere_but_here,burned_out,equip_mint,head_scan,temporal_gift,aftertaste,point_drops,anti_entrapment,nowhere_but_there,now_you_see_me,arsenal_accelerator,pop_shocks,stock_option,newtonian_negation,quacknarok",",");
+    level._ClassicElixirNames = StrTok("迅捷如常,随便哪里都行,燃烧殆尽,装备焕新,爆头扫描,时间馈赠,余味,点数掉落,防困陷,只去那里,现在看见我,军械加速,电击爆裂,库存选项,牛顿否定,嘎嘎末日",",");
     level._ClassicTypes = StrTok("2,1,2,1,2,2,2,1,2,1,1,2,2,2,2,2",",");
-    level._StatOpts = StrTok("Total Games Played,Highest Round,Most Kills,Most Headshots,Round",",");
+    level._StatOpts = StrTok("总游戏次数,最高回合,最多击杀,最多爆头,生存回合",",");
     level._PerkStrings = StrTok("specialty_cooldown,specialty_quickrevive,specialty_awareness,specialty_staminup,specialty_etherealrazor,specialty_wolf_protector,specialty_zombshell,specialty_death_dash,specialty_electriccherry,specialty_berserker,specialty_camper,specialty_shield,specialty_deadshot,specialty_extraammo,specialty_widowswine,specialty_additionalprimaryweapon,specialty_phdflopper,specialty_mystery", ",");
-    level._PerkNames = StrTok("Timeslip,Quick Revive,Death Perception,Stamin-Up,Ethereal Razor,Blood Wolf Bite,Zombshell,Blaze Phase,Electric Cherry,Dying Wish,Stone Cold Stronghold,Victorious Tortoise,Deadshot Dealer,Bandolier Bandit,Winter's Wail,Mule Kick,PhD Slider,Secret Sauce", ",");
+    level._PerkNames = StrTok("时间滑移,快速救援,死亡感知,耐力提升,幽灵剃刀,血狼撕咬,尸壳,烈焰冲刺,电击樱桃,垂死愿望,冷石堡垒,胜利龟甲,死亡射手,弹药强盗,寒冬哀嚎,骡子踢,博士滑铲,秘密配方", ",");
 }
 
 playerSetup()
@@ -114,9 +119,9 @@ playerSetup()
     if(self hasMenu())
     {
         wait 5;
-        self iPrintln("^9Welcome To " + level.menuName + ", Version: " + level.lucyVersion);
-        self iPrintLn("^1Developed By: ^2" + level.menuDeveloper);
-        self iPrintln("^0Verification Status: " + self.playerSetting["verification"]);
+        self iPrintln("^9欢迎使用 " + level.menuName + "，版本：" + level.lucyVersion);
+        self iPrintLn("^1开发者：^2" + level.menuDeveloper);
+        self iPrintln("^0当前权限：" + self.playerSetting["verification"]);
     }
     self thread menuMonitor();
     self.menuThreaded = true;

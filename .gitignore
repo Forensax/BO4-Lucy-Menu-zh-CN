@@ -1,0 +1,11 @@
+# Compiled and packaged artifacts are distributed through GitHub Releases.
+*.gscc
+*.omap
+*.bin
+*.zip
+
+# Local build outputs and restored dependencies.
+.vs/
+[Bb]in/
+[Oo]bj/
+packages/

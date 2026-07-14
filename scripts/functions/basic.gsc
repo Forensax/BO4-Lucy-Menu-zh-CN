@@ -42,7 +42,7 @@ NoclipToggle1(player)
     if(isDefined(player.Noclip))
     {
         player endon("disconnect");
-        self iPrintLn("Noclip ^2Enabled");
+        self iPrintLn("穿墙移动已^2开启");
         if(player hasMenu() && player isInMenu())
             player closeMenu1();
         player DisableWeapons();
@@ -71,7 +71,7 @@ NoclipToggle1(player)
         player.nocliplinker delete();
         player EnableWeapons();
         player EnableOffHandWeapons();
-        self iPrintLn("Noclip ^1Disabled");
+        self iPrintLn("穿墙移动已^1关闭");
     }
 }
 
@@ -147,7 +147,7 @@ ToggleRecoil()
     if(isDefined(self.recoil))
     {
         self endon("disconnect");
-        self iPrintLn("No Recoil ^2Enabled");
+        self iPrintLn("无后坐力已^2开启");
         self.linked=false;
         self.recoilentity = spawnSM(self.origin, "tag_origin");
         while(isDefined(self.recoil))
@@ -171,7 +171,7 @@ ToggleRecoil()
     else
     {
         self unlink();
-        self iPrintLn("No Recoil ^1Off");
+        self iPrintLn("无后坐力已^1关闭");
         self.recoilentity delete();
     }
 }
@@ -182,12 +182,12 @@ UnlimitedSprint()
     if (isDefined(self.UnlimitedSprint))
     {
         self setperk("specialty_unlimitedsprint");
-        self iPrintLn("Unlimited Sprint ^2Enabled");
+        self iPrintLn("无限奔跑已^2开启");
     } 
     else 
     {
         self unsetperk("specialty_unlimitedsprint");
-        self iPrintLn("Unlimited Sprint ^1Disabled");
+        self iPrintLn("无限奔跑已^1关闭");
     }
 }
 
@@ -195,10 +195,10 @@ PSpeed()
 {
     self.PSpeed = isDefined(self.PSpeed) ? undefined : true;
     if(isDefined(self.PSpeed)) 
-        self iPrintLn("x2 Movement ^2Enabled");
+        self iPrintLn("双倍移速已^2开启");
     else 
     { 
-        self iPrintLn("x2 Movement ^1Disabled"); 
+        self iPrintLn("双倍移速已^1关闭");
         self setMoveSpeedScale(1);
     }
     while(isDefined(self.PSpeed))
@@ -214,12 +214,12 @@ ToggleKillAura()
     if(isDefined(self.killAura))
     {
         self thread KillAura();
-        self iPrintLn("Kill Aura ^2Enabled");
+        self iPrintLn("杀戮光环已^2开启");
     }
     else
     {
         self notify(#"end_kill_aura");
-        self iPrintLn("Kill Aura ^1Disabled");
+        self iPrintLn("杀戮光环已^1关闭");
     }
 }
 
@@ -248,7 +248,7 @@ KillAura()//Shaolin Shuffle Glitch on BO4??
 GetSelfRes()//Credit TheUnknownCod3r / MrFawkes1337
 {
     self zm_laststand::function_3a00302e();//Awards One Self Revive at a time.
-    self iPrintLn("Self Revive ^1Awarded");
+    self iPrintLn("已增加一次^1自救机会");
 }
 
 BO4Rev()
@@ -274,7 +274,7 @@ PlayerTakeScore(value)
 SetFOV(Value)
 {
     setDvar("cg_fov", Value);
-    self iPrintLn("^4FOV Set To: ^1"+Value);
+    self iPrintLn("^4视野范围已设为：^1"+Value);
 }
 BO4_OpenAllDoors()
 {
@@ -322,7 +322,7 @@ BO4_OpenAllDoors()
 	level notify(#"open_sesame");
 	wait(1);
 	setdvar(#"zombie_unlock_all", 0);
-    self iPrintLn("Doors ^2Opened");
+    self iPrintLn("全部门已^2开启");
 }
 
 GivePlayerPerk(perkName,player)

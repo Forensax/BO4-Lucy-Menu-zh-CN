@@ -49,7 +49,7 @@ SetSelfRevives(count)
 {
     foreach(player in level.players){
         player zm_laststand::function_3d685b5f(count);
-        player iPrintLn("Awarded "+count+" Self Revives");
+        player iPrintLn("已获得 "+count+" 次自救机会");
     }
 }
 
@@ -57,31 +57,31 @@ DownPlayer(player)
 {
     player disableInvulnerability();
     player doDamage(player.health + 1, player.origin);
-    self iPrintLn("Player ^1Downed");
-    player iPrintLn("You Were Downed by "+self.name);
+    self iPrintLn("玩家已被^1击倒");
+    player iPrintLn("你被 "+self.name+" 击倒了");
 }
 
 KillPlayer(player)
 {
     player notify("player_suicide");
     player zm_laststand::bleed_out();
-    self iPrintLn("Killed "+player.name);
-    player iPrintLn("You Just got murdered By: "+self.name);
+    self iPrintLn("已击杀 "+player.name);
+    player iPrintLn("你被 "+self.name+" 击杀了");
 }
 
 sendToJail(player)
 {
     if(!isDefined(level.JailCoords)){
-        self iPrintLn("Jail Coords are Not Defined for the Map"); return;}
+        self iPrintLn("当前地图没有设置监狱坐标"); return;}
     
     player setOrigin(level.JailCoords);
-    player iPrintLn("You were sent to JAIL!");
+    player iPrintLn("你已被送入监狱！");
 }
 
 TakeAllPlayerWeaps(player)
 {
     player takeAllWeapons();
-    player iPrintLn("You just had your Weapons Taken!");
+    player iPrintLn("你的武器已被移除！");
 }
 
 PlayerMessage(val, player)//remove pointless messages
@@ -90,11 +90,11 @@ PlayerMessage(val, player)//remove pointless messages
     {
         switch(val)
         {
-            case 0: client S(player.name+" ^2Has a Mod Menu!");break;
-            case 1: client S(player.name+" ^5Is Cheating!!");break;
-            case 2: client S(player.name+" ^1is a Hacking Bitch!"); break;
-            case 3: client S(player.name+" ^4Is a terrible Zombies Player!"); break;
-            case 4: client S(player.name+" ^3Has a Tiny Pee Pee"); break;
+            case 0: client S(player.name+" ^2正在使用模组菜单！");break;
+            case 1: client S(player.name+" ^5正在作弊！");break;
+            case 2: client S(player.name+" ^1是个可恶的黑客！"); break;
+            case 3: client S(player.name+" ^4僵尸模式玩得太差了！"); break;
+            case 4: client S(player.name+" ^3胆子真小"); break;
         }
     }
 }

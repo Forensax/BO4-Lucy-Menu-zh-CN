@@ -3,7 +3,7 @@ GameModeHandler(gameModeSelected)
     if(!isDefined(level.GameModeSelected)){
         if(!isDefined(gameModeSelected))
         {
-            self iPrintLn("How the FUCK are you here?");
+            self iPrintLn("无效的游戏模式");
         }
         else if(gameModeSelected == "Gun Game")
         {
@@ -25,9 +25,9 @@ doGunGame()//Haha, thats kinda funny Criptic, Guess what I did here, before you 
     {
         player thread CloseMenu1();
         player thread GunGame();
-        player iPrintLn("^1G^7un ^1G^7ame");
+        player iPrintLn("^1枪^7械^1游^7戏");
         wait 2;
-        player iPrintLn("^1H^7ave ^1F^7un !");
+        player iPrintLn("^1玩^7得^1开^7心！");
     }
 }
 GunGame()
@@ -43,7 +43,7 @@ GunGame()
         for(i=1;i <= weaps.size-1;i++)
     {
         self waittill("zom_kill");
-        self iPrintLn("You got a new Weapon! Kill Count: ^1"+i);
+        self iPrintLn("已获得新武器！击杀数：^1"+i);
         self TakeAllWeapons();
         self GiveWeapon(weaps[i]);
         self SwitchToWeapon(weaps[i]);
@@ -58,9 +58,9 @@ DoAllWeaponsZM()
     {
         player thread CloseMenu1();
         player thread AllWeaponsStart();
-        player iPrintLn("^1All ^2The ^3Weapons");
+        player iPrintLn("^1全^2部^3武器轮换");
         wait 2;
-        player iPrintLn("^5Weapons will Rotate every ^645 ^3Seconds!");
+        player iPrintLn("^5每 ^645 ^3秒轮换一次武器！");
     }
 }
 
@@ -76,7 +76,7 @@ AllWeaponsStart()
         i = randomIntRange(0, PapWeaps.size - 1);
         self GiveWeapon(PapWeaps[i]);
         self SwitchToWeapon(PapWeaps[i]);
-        self iPrintLn("^1Awarded New Weapon");
+        self iPrintLn("^1已获得新武器");
         wait 45;
     }
 }

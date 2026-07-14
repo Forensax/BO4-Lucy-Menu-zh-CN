@@ -2,7 +2,7 @@
 BO4newOrigin(Coords, Location)
 {
     if(!isDefined(Location))
-        Location = "Undefined";
+        Location = "未定义";
     self SetOrigin(Coords);
-    self iPrintLn("Teleported To "+Location);
+    self iPrintLn("已传送到 "+Location);
 }

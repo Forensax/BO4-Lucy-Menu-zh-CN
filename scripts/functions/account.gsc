@@ -4,7 +4,7 @@ BO4Level55(player)
     player rank::updaterank();
     wait .1;
     uploadStats(player);
-    player iPrintLn("^2Rank and XP Set!");
+    player iPrintLn("^2等级和经验已设置");
 }
 BO4Level1000(player)//this is WIP, DO NOT USE
 {
@@ -13,7 +13,7 @@ BO4Level1000(player)//this is WIP, DO NOT USE
     player rank::updaterank();
     wait .1;
     uploadStats(player);
-    player iPrintLn("^2Rank and XP Set!");
+    player iPrintLn("^2等级和经验已设置");
 }
 PlasmaLoop()
 {
@@ -24,7 +24,7 @@ PlasmaLoop()
         {
             self function_e8f77739(#"zm_timeplayed", 1000000);
             self.PlasmaGiven += 1000000;
-            self iPrintLn("You Just Got 100k Plasma. Total: "+self.PlasmaGiven);
+            self iPrintLn("获得 100 万等离子，总计："+self.PlasmaGiven);
             wait 1;
         }
     }
@@ -46,7 +46,7 @@ PlasmaLoopplayer(player)
 bo4_MaxLevels(player)
 {
     player endon("disconnect");
-    self iPrintLn("^2Maxing Out Weapon Levels!");
+    self iPrintLn("^2正在将武器等级升满");
 
     foreach(gun in level.zombie_weapons)
     {
@@ -67,7 +67,7 @@ bo4_MaxLevels(player)
 
     wait 0.5;
     UploadStats(player);
-    player iPrintLn("Max Weapon Ranks ^2Set");
+    player iPrintLn("武器等级已^2升满");
 }
 
 bo4_UnlockAll(player)
@@ -75,16 +75,16 @@ bo4_UnlockAll(player)
     if(isDefined(player.UnlockAll))
         return;
 
-    if(player stats::get_stat(#"playerstatslist","rank","statvalue") < 54) { self iPrintLn("MUST BE LEVEL 55 TO USE THIS"); return;}
+    if(player stats::get_stat(#"playerstatslist","rank","statvalue") < 54) { self iPrintLn("需要达到 55 级才能使用"); return;}
     player.UnlockAll = true;
  
     player endon("disconnect");
     
     batchCount = 0;
     idx=0;
-    player iPrintLn("Unlock All ^2Started");
+    player iPrintLn("解锁全部内容^2已开始");
     if(player != self)
-        self iPrintLn(player getName() + ": Unlock All ^2Started");
+        self iPrintLn(player getName() + "：解锁全部内容^2已开始");
     for(a=1;a<6;a++)
     {
         if(a == 4) //statsmilestones4.csv is an empty table. So we skip it
@@ -124,7 +124,7 @@ bo4_UnlockAll(player)
             {
                 case "global":
                     idx++;
-                    player iPrintLn("(Global) Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
+                    player iPrintLn("（全局）名称："+stat.name+"，数值："+stat.value+"（"+idx+"/972）");
                     player stats::set_stat(#"PlayerStatsList", stat.name, #"StatValue", stat.value);
                     player stats::set_stat(#"PlayerStatsList", stat.name, #"Challengevalue", stat.value);
                     batchCount++;
@@ -136,7 +136,7 @@ bo4_UnlockAll(player)
                     groups = Array(#"weapon_pistol", #"weapon_smg", #"weapon_assault", #"weapon_lmg", #"weapon_cqb", #"weapon_sniper", #"weapon_tactical", #"weapon_launcher", #"weapon_cqb", #"weapon_knife", #"weapon_special");
                     foreach(group in groups)
                     {
-                        player iPrintLn("Group: "+group+", Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
+                        player iPrintLn("分组："+group+"，名称："+stat.name+"，数值："+stat.value+"（"+idx+"/972）");
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"StatValue", stat.value);
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"Challengevalue", stat.value);
                         wait 0.01;
@@ -148,7 +148,7 @@ bo4_UnlockAll(player)
                     foreach(weap in level.zombie_weapons)
                     {
                         if(isdefined(weap.weapon)) {
-                            player iPrintLn("(Camos) Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
+                            player iPrintLn("（迷彩）名称："+stat.name+"，数值："+stat.value+"（"+idx+"/972）");
                             player addweaponstat(weap.weapon, stat.name, stat.value);
                             player addweaponstat(weap.weapon, #"kills",5000);
                             player addweaponstat(weap.weapon, #"headshots", 5000);
@@ -172,7 +172,7 @@ bo4_UnlockAll(player)
             if(batchCount >= 25)
             {
                 UploadStats(player);
-                player iPrintLn("Stats Uploaded");
+                player iPrintLn("统计数据已上传");
                 batchCount = 0;
             }
         }
@@ -180,9 +180,9 @@ bo4_UnlockAll(player)
     if(batchCount > 0)
         UploadStats(player);
     
-    player iPrintLn("Unlock All Challenges ^2Done");
+    player iPrintLn("全部挑战已^2解锁");
     if(player != self)
-        self iPrintLn(player getName() + ": Unlock All Challenges ^2Done");
+        self iPrintLn(player getName() + "：全部挑战已^2解锁");
 }
 
 CompleteActiveContracts(player)
@@ -199,14 +199,15 @@ Achievements(player)
 {
     Achievs = array("zm_office_cold_war", "zm_office_ice", "zm_office_shock", "zm_office_power", "zm_office_strike", "zm_office_office", "zm_office_crawl", "zm_office_gas", "zm_office_pentupagon", "zm_office_everywhere", "zm_red_tragedy","zm_red_follower","zm_red_tribute","zm_red_mountains","zm_red_no_obol","zm_red_sun","zm_red_wind","zm_red_eagle","zm_red_defense","zm_red_gods", "zm_white_shard","zm_white_starting","zm_white_unlock","zm_white_mod","zm_white_trap","zm_white_pap","zm_white_knuckles","zm_white_perk","zm_white_stun","zm_white_roof","zm_trophy_doctor_is_in", "zm_trials_round_30","zm_escape_most_escape","zm_escape_patch_up","zm_escape_hot_stuff","zm_escape_hist_reenact","zm_escape_match_made","zm_escape_west_side","zm_escape_senseless","zm_escape_gat","zm_escape_throw_dog", "zm_orange_ascend","zm_orange_bells","zm_orange_freeze","zm_orange_hounds","zm_orange_totems","zm_orange_pack","zm_orange_secret","zm_orange_power","zm_orange_ziplines","zm_orange_jar","ZM_ZODT8_TRIAL_STEP_1", "ZM_MANSION_ARTIFACT","ZM_MANSION_STAKE","ZM_MANSION_BOARD","ZM_MANSION_BITE","ZM_MANSION_QUICK","ZM_MANSION_ALCHEMICAL","ZM_MANSION_CRAFTING","ZM_MANSION_SHOCKING","ZM_MANSION_CLOCK","ZM_MANSION_SHRINKING", "zm_towers_challenges","zm_towers_get_ww","zm_towers_trap_build","zm_towers_ww_kills","zm_towers_kitty_kitty","zm_towers_dismember","zm_towers_boss_kill","zm_towers_arena_survive","zm_towers_fast_pap", "ZM_ZODT8_ARTIFACT","ZM_ZODT8_STOWAWAY","ZM_ZODT8_DEEP_END","ZM_ZODT8_LITTLE_PACK","ZM_ZODT8_SHORTCUT","ZM_ZODT8_TENTACLE","ZM_ZODT8_STOKING","ZM_ZODT8_ROCK_PAPER","ZM_ZODT8_SWIMMING","zm_trophy_jack_of_all_blades", "zm_trophy_straw_purchase","zm_trophy_perkaholic_relapse","zm_trophy_gold","zm_rush_personal_score","zm_rush_team_score","zm_rush_multiplier_100","mp_trophy_special_issue_weaponry","mp_trophy_special_issue_equipment", "wz_specialist_super_fan","wz_first_win","wz_not_a_fluke","wz_blackout_historian","wz_specialist_super_fan","wz_zombie_fanatic","mp_trophy_battle_tested","mp_trophy_welcome_to_the_club","MP_SPECIALIST_MEDALS","MP_MULTI_KILL_MEDALS", "mp_trophy_vanquisher");
 
-    foreach(Achiev in Achievs) 
+    for(i = 0; i < Achievs.size; i++)
     {
+        Achiev = Achievs[i];
         player GiveAchievement(Achiev);
-        player iPrintLn("^2" + Achiev);
+        player iPrintLn("^2正在解锁成就：" + (i + 1) + "/" + Achievs.size + " " + Achiev);
         wait .5;
     }
     wait .5;
-    player iPrintLn("^6All Achievements Unlocked");
+    player iPrintLn("^6全部成就已解锁");
 }
 
 BO4SetPrestigeMax()
@@ -220,7 +221,7 @@ BO4SetPrestigeMax()
     self rank::updaterank();
     wait .1;
     uploadStats(self);
-    self iPrintLn("This should set you to master 1000");
+    self iPrintLn("已尝试设置为大师 1000 级");
     }
     else{
         self stats::set_stat("playerstatslist", "plevel", "statvalue", 10);

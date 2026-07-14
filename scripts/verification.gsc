@@ -5,17 +5,17 @@ setVerification(a, player, msg)
         if(isDefined(msg))
         {
             if(player IsHost())
-                return self iPrintlnBold("^1ERROR: ^7You Can't Change The Status Of The Host");
+                return self iPrintlnBold("^1错误：^7无法修改房主权限");
             if(player getVerification() == a)
-                return self iPrintlnBold("^1ERROR: ^7Player's Verification Already Set To ^2" + level.MenuStatus[a]);
+                return self iPrintlnBold("^1错误：^7该玩家已经是 ^2" + level.MenuStatus[a]);
             if(player == self)
-                return self iPrintlnBold("^1ERROR: ^7You Can't Change Your Own Status");
+                return self iPrintlnBold("^1错误：^7无法修改自己的权限");
         }
         return;
     }
     
     player.playerSetting["verification"] = level.MenuStatus[a];
-    player iPrintlnBold("Your Status Has Been Set To ^2" + player.playerSetting["verification"]);
+    player iPrintlnBold("你的权限已设为 ^2" + player.playerSetting["verification"]);
     player.menuParent = [];
     if(player isInMenu())
         player closeMenu1();
@@ -30,7 +30,7 @@ SetVerificationAllPlayers(a, msg)
     foreach(player in level.players)
         self setVerification(a, player);
     if(IsDefined(msg))
-        self iPrintlnBold("All Players Verification Set To ^2" + level.MenuStatus[a]);
+        self iPrintlnBold("全体玩家权限已设为 ^2" + level.MenuStatus[a]);
 }
 
 getVerification()

@@ -8,7 +8,7 @@ ModvarTest()
     }
     else 
     {
-        self iPrintLn("ModVars ^1Disabled");
+        self iPrintLn("Mod 参数已^1关闭");
         setDvar("g_speed", 100);
         setDvar("cg_fov", 100);
     }
@@ -29,7 +29,7 @@ BO4GetMap()
 
 ChangeMap(Mapname)
 {
-    self iPrintLn("Map Changing To "+Mapname);
+    self iPrintLn("正在切换地图："+Mapname);
     wait 0.5;
     setDvar("ls_mapname", Mapname);
     setDvar("mapname", Mapname);
@@ -55,8 +55,8 @@ ActivatePAP(mapname)
     if(!isDefined(mapname)) mapname = level.script;
     switch(mapname)
     {
-        case "zm_towers": level flag::set("zm_towers_pap_quest_completed"); level flag::set("zm_towers_pap_quest_sentinel_artifact_exploded"); wait .5; sentinel_model = getent("mdl_pap_quest_sentinel_artifact", "targetname"); sentinel_model delete(); wait .5; pap_debris_clip = getentarray("mdl_pap_room_debris_clip","targetname"); foreach (clip in pap_debris_clip) { clip connectPaths(); clip delete();} wait .5; var_10761775 = getent("t_pap_quest_place_head", "targetname"); var_10761775 delete(); var_8a3d82fc = getentarray("script_brush_lgt_pap_door", "targetname"); foreach(clip2 in var_8a3d82fc) clip2 delete(); exploder::exploder("exp_lgt_pap"); level flag::set("zm_towers_pap_quest_sentinel_artifact_exploded"); wait .5;     var_3075677 = getentarray("mdl_pap_quest_head", "targetname"); foreach(enemyHead in var_3075677){ enemyHead flag::clear(#"hash_26125a3306681e2"); enemyHead delete();} level flag::set("connect_pap_room_to_danu_ra_tunnel"); level flag::set("connect_pap_room_to_odin_zeus_tunnel"); wait .5; var_f7afe1a0 = getent("sarcophagus_destroyed","targetname"); var_f7afe1a0 delete(); self iPrintLnBold("Pap Opened, Walls will still appear"); break;
-        case "zm_escape": level flag::set("power_on1"); level notify(#"hash_7e1d78666f0be68b"); wait 1; level flag::set(#"pap_quest_completed"); self iPrintLnBold("Not Added Yet"); break;
+        case "zm_towers": level flag::set("zm_towers_pap_quest_completed"); level flag::set("zm_towers_pap_quest_sentinel_artifact_exploded"); wait .5; sentinel_model = getent("mdl_pap_quest_sentinel_artifact", "targetname"); sentinel_model delete(); wait .5; pap_debris_clip = getentarray("mdl_pap_room_debris_clip","targetname"); foreach (clip in pap_debris_clip) { clip connectPaths(); clip delete();} wait .5; var_10761775 = getent("t_pap_quest_place_head", "targetname"); var_10761775 delete(); var_8a3d82fc = getentarray("script_brush_lgt_pap_door", "targetname"); foreach(clip2 in var_8a3d82fc) clip2 delete(); exploder::exploder("exp_lgt_pap"); level flag::set("zm_towers_pap_quest_sentinel_artifact_exploded"); wait .5;     var_3075677 = getentarray("mdl_pap_quest_head", "targetname"); foreach(enemyHead in var_3075677){ enemyHead flag::clear(#"hash_26125a3306681e2"); enemyHead delete();} level flag::set("connect_pap_room_to_danu_ra_tunnel"); level flag::set("connect_pap_room_to_odin_zeus_tunnel"); wait .5; var_f7afe1a0 = getent("sarcophagus_destroyed","targetname"); var_f7afe1a0 delete(); self iPrintLnBold("强化机已开启，部分墙体仍会显示"); break;
+        case "zm_escape": level flag::set("power_on1"); level notify(#"hash_7e1d78666f0be68b"); wait 1; level flag::set(#"pap_quest_completed"); self iPrintLnBold("此地图暂未完成"); break;
     }
 }
 
@@ -69,5 +69,5 @@ RestartMap()
 SafeEndGame()
 {
     level notify("end_game");
-    foreach(client in level.players) client iPrintLn("^2Sorry, "+level.hostname+" Ended The Game");
+    foreach(client in level.players) client iPrintLn("^2房主 "+level.hostname+" 结束了游戏");
 }

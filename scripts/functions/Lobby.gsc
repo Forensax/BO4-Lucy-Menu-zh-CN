@@ -72,7 +72,7 @@ AntiQuit(player)
     if(isDefined(self.AntiQuit))
     {
         SetMatchFlag("disableIngameMenu", 1);
-        self iPrintLn("Anti Quit ^2Enabled");
+        self iPrintLn("防止退出已^2开启");
         foreach(player in level.players) 
         {
             player CloseInGameMenu();
@@ -81,7 +81,7 @@ AntiQuit(player)
     else 
     {
         SetMatchFlag("disableIngameMenu", 0);
-        self iPrintLn("Anti Quit ^1Disabled");
+        self iPrintLn("防止退出已^1关闭");
     }
 }
 

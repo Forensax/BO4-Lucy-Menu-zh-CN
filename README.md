@@ -1,3 +1,23 @@
+# BO4 Lucy Menu 简体中文汉化
+
+这是 [AuroraDoesCode/BO4-Lucy-Menu](https://github.com/AuroraDoesCode/BO4-Lucy-Menu) 的简体中文汉化 Fork，基于上游提交 `453693f4741e36b6c76726056f27249bc8b27a32`。
+
+- 菜单名称：`Lucy 菜单`
+- 汉化版本：`1.5.0-zh-CN`
+- 状态：已编译并静态验证，待游戏内显示验证
+- 下载：[v1.5.0-zh-CN Release](https://github.com/Forensax/BO4-Lucy-Menu-zh-CN/releases/tag/v1.5.0-zh-CN)
+- 详细说明：[汉化说明.md](./汉化说明.md)
+
+菜单、权限、开关、提示、地图、传送地点、技能、药剂和掉落物等玩家可见文本已汉化。武器型号、升级武器名称、玩家名、作者名及内部资源标识保留原文。
+
+使用时下载 Release 中的 `Lucy-Menu-zh-CN.gscc`，按照下方上游说明通过 T8 Compiler GUI 导入，并选择 `ZOMBIES` 模式。本项目没有进行游戏内注入测试；BO4 字体对中文字形的实际显示效果仍需实机确认。
+
+中文源码需要支持 UTF-8 字符串表的 T8 编译器。Release 产物已经使用修改后的离线编译器完成编译和字符串表反读验证。原版 ASCII 字符串写入会将中文转换为问号。
+
+> 上游仓库当前未提供许可证文件。原项目及相关代码版权归原作者和贡献者所有，本仓库保留完整 Git 历史和 GitHub Fork 关系，仅提供简体中文本地化。菜单包含账号、统计、成就和永久解锁功能，使用前请备份数据并自行评估风险。
+
+---
+
 <div id="top"></div>
 
 [![Contributors][contributors-shield]][contributors-url]

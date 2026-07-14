@@ -96,7 +96,7 @@ SetCustomXPMultiplier(value)
     if(value > 1)
     {
         //level.CustomXPValue = value;
-        self S("Custom XP Rate Enabled at "+value+"x");
+        self S("经验倍率已设为 "+value+" 倍");
         if(zm_utility::is_standard())//do this so it multiplies the base values for XP in game, and returns the base rate x our custom rate.
         {
             switch(level.players.size)
@@ -135,7 +135,7 @@ SetCustomXPMultiplier(value)
     else
     {
         level.customXPValue = undefined;
-        self S("Custom XP Rate ^1Disabled");
+        self S("自定义经验倍率已^1关闭");
         level.var_3426461d = &GetXPMultiplier; 
     }
 }
@@ -143,7 +143,7 @@ SetCustomXPMultiplier(value)
 PrintDefaultXPRate()
 {
     self.xprate = zombie_utility::function_d2dfacfd(#"hash_1ab42b4d7db4cb3c");
-    self S("Current XP Rate is: "+self.xprate);
+    self S("当前经验倍率："+self.xprate);
 }
 GetXPMultiplier() 
 {
