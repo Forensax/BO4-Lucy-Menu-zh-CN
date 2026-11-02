@@ -1,0 +1,20 @@
+Lucy 菜单 · 简体中文 v1.5.0-zh-CN
+
+1. 完整解压压缩包。
+2. 启动 BO4，进入僵尸模式私人大厅。
+3. 双击“一键注入.cmd”，如出现 Windows 管理员提示则允许。
+4. 工具显示 Injected 后开始游戏，瞄准＋近战打开菜单。
+
+注入后保持窗口打开。工具提示的任意键会重置游戏脚本，游戏过程中不要按键；结束游戏后再关闭窗口。
+包内已包含中文成品和注入工具，无需重新编译或联网下载。不要使用原版编译器重新编译中文源码。
+依赖 Windows 10/11 和 .NET Framework 4.8 或更高版本。游戏版本兼容性及中文字形需实机确认。
+本包未自动启动游戏，未执行实际注入测试。菜单包含账号及永久解锁功能，使用前请备份存档。
+
+工具自检：在本目录运行 powershell -NoProfile -ExecutionPolicy Bypass -File .\Inject.ps1 -CheckOnly
+
+菜单上游：https://github.com/AuroraDoesCode/BO4-Lucy-Menu
+汉化项目：https://github.com/Forensax/BO4-Lucy-Menu-zh-CN
+注入工具来源：本机 C:\t7compiler 的现有安装副本；编译器上游 https://github.com/AuroraDoesCode/t7-compiler-custom
+中文成品直接使用 v1.5.0-zh-CN Release 原始附件，未重新编译。
+成品 SHA-256：362F3E189F3BE398148D21A707718F949C5C15E68A2A75A6702DBE71AD964685
+原项目与工具版权归各自作者及贡献者所有。

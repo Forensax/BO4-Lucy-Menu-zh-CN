@@ -6,6 +6,7 @@
 - 汉化版本：`1.5.0-zh-CN`
 - 状态：已编译并静态验证，待游戏内显示验证
 - 下载：[v1.5.0-zh-CN Release](https://github.com/Forensax/BO4-Lucy-Menu-zh-CN/releases/tag/v1.5.0-zh-CN)
+- 一键注入包：[Lucy-Menu-zh-CN-OneClick-v1.5.0.zip](https://github.com/Forensax/BO4-Lucy-Menu-zh-CN/releases/download/v1.5.0-zh-CN/Lucy-Menu-zh-CN-OneClick-v1.5.0.zip)
 - 详细说明：[汉化说明.md](./汉化说明.md)
 
 菜单、权限、开关、提示、地图、传送地点、技能、药剂和掉落物等玩家可见文本已汉化。武器型号、升级武器名称、玩家名、作者名及内部资源标识保留原文。
@@ -13,6 +14,10 @@
 使用时下载 Release 中的 `Lucy-Menu-zh-CN.gscc`，按照下方上游说明安装 [T7 Compiler](https://github.com/AuroraDoesCode/t7-compiler-custom) 和 [图形前端](https://github.com/AuroraDoesCode/Black-Ops-GSC-Compiler-Frontend)，通过 `Load Script` 加载脚本，选择 `ZOMBIES` 模式，再使用 `Inject GSCC` 注入。本项目没有进行游戏内注入测试；BO4 字体对中文字形的实际显示效果仍需实机确认。
 
 中文源码需要支持 UTF-8 字符串表的 T8 编译器。Release 产物已经使用修改后的离线编译器完成编译和字符串表反读验证。原版 ASCII 字符串写入会将中文转换为问号。
+
+一键包包含上述 Release 原始成品与注入工具，未重新编译。完整解压后，进入僵尸模式私人大厅，双击 `一键注入.cmd`。注入成功后保持窗口打开，游戏过程中不要按键；工具等待的任意键会重置脚本。需要 Windows 10/11 与 .NET Framework 4.8 或更高版本。
+
+本地源码编译可运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\build-zh-CN.ps1`，通过 `-CompilerPath` 指定 UTF-8 修改版编译器。生成一键包可运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\package-oneclick.ps1 -PayloadPath "Release 原始 gscc 路径" -RuntimeDirectory "注入工具目录" -OutputDirectory "输出目录"`；打包前强制核对原始产物 SHA-256，输出 ZIP 和同名 `.sha256` 校验文件。
 
 > 上游仓库当前未提供许可证文件。原项目及相关代码版权归原作者和贡献者所有，本仓库保留完整 Git 历史和 GitHub Fork 关系，仅提供简体中文本地化。菜单包含账号、统计、成就和永久解锁功能，使用前请备份数据并自行评估风险。
 

@@ -9,3 +9,5 @@
 [Bb]in/
 [Oo]bj/
 packages/
+.build-zh-CN/
+.package-staging/
