@@ -1,6 +1,6 @@
 # BO4 Lucy Menu 简体中文汉化
 
-这是 [AuroraDoesCode/BO4-Lucy-Menu](https://github.com/AuroraDoesCode/BO4-Lucy-Menu) 的简体中文汉化 Fork，基于上游提交 `453693f4741e36b6c76726056f27249bc8b27a32`。
+这是 [AuroraDoesCode/BO4-Lucy-Menu](https://github.com/AuroraDoesCode/BO4-Lucy-Menu) 的简体中文汉化 Fork，已同步至上游提交 `7b3bcd401fe1c286f44fa1c685f9324d4c7dbaae`。
 
 - 菜单名称：`Lucy 菜单`
 - 汉化版本：`1.5.0-zh-CN`
@@ -10,7 +10,7 @@
 
 菜单、权限、开关、提示、地图、传送地点、技能、药剂和掉落物等玩家可见文本已汉化。武器型号、升级武器名称、玩家名、作者名及内部资源标识保留原文。
 
-使用时下载 Release 中的 `Lucy-Menu-zh-CN.gscc`，按照下方上游说明通过 T8 Compiler GUI 导入，并选择 `ZOMBIES` 模式。本项目没有进行游戏内注入测试；BO4 字体对中文字形的实际显示效果仍需实机确认。
+使用时下载 Release 中的 `Lucy-Menu-zh-CN.gscc`，按照下方上游说明安装 [T7 Compiler](https://github.com/AuroraDoesCode/t7-compiler-custom) 和 [图形前端](https://github.com/AuroraDoesCode/Black-Ops-GSC-Compiler-Frontend)，通过 `Load Script` 加载脚本，选择 `ZOMBIES` 模式，再使用 `Inject GSCC` 注入。本项目没有进行游戏内注入测试；BO4 字体对中文字形的实际显示效果仍需实机确认。
 
 中文源码需要支持 UTF-8 字符串表的 T8 编译器。Release 产物已经使用修改后的离线编译器完成编译和字符串表反读验证。原版 ASCII 字符串写入会将中文转换为问号。
 
@@ -38,6 +38,7 @@
   <p align="center">
 	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC & PS4.<br>For Battle.net, Shield Client & Homebrew PS4 Consoles!
     <br />
+	  <h1 align="center">Alternate Fork of T7 Compiler: https://github.com/AuroraDoesCode/t7-compiler-custom (Should work on BO3, BO4, and Cold War.)</h1>
     <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu/issues">Report Bug</a>
     ·
     <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu/issues">Request Feature</a>
@@ -68,25 +69,23 @@
 
 ### Prerequisites
 
-To use this Mod Menu, you must have T8 Compiler GUI.
-You can download T8 Compiler GUI [Here](https://github.com/Jek47/BO4-GSC-Mods/tree/main/Tools/PC)
+To use this Mod Menu, ensure you have T7 Compiler installed, link above, and download the Frontend: https://github.com/AuroraDoesCode/Black-Ops-GSC-Compiler-Frontend
 These Instructions Apply to BOTH Battle.net, and Shield Client.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
 ## Usage
-	To use The Mod Menu, The following instructions can be used with ease. 
+Video Guide located [Here](https://www.youtube.com/watch?v=h_XE8kQIttc), or for a text guide, The following instructions can be used with ease.
 	
 	1. Download a Compiled Version of the Menu from Releases, and save it to your desktop.
 	
-	2. Download and Extract T8 Compiler GUI from https://github.com/Jek47/BO4-GSC-Mods/tree/main/Tools/PC (The Password is: Jek47), then open T8 Compiler GUI.
+	2. Download and Extract T8 Compiler GUI from https://github.com/AuroraDoesCode/Black-Ops-GSC-Compiler-Frontend, then open T8 Compiler GUI.
 
- 	3. Inside T8 Compiler GUI, hit Import a GSC Script, and load the Compiled.gscc you downloaded from the releases section. Select the script on the right, and make sure the mode is "ZOMBIES"!
+	3. Inside T8 Compiler GUI, hit Load Script, and load the Compiled.gscc you downloaded from the releases section. It will auto Populate on the right. Make sure the mode is "ZOMBIES"!
 	
- 	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Click "Inject GSC". If successful, You will get a popup box telling you GSC Injected successfully.
+	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Click "Inject GSCC". If successful, You will get a popup box telling you GSC Injected successfully.
 	
 	5. Once the game loads, You should be able to Aim and Knife to open the menu. Aim to Scroll Up, Shoot to Scroll Down. F To Select, Melee to go Back. For controllers, this is LT & RS to open, LT to Scroll Up, RT to scroll Down, X to Select, Melee go back.
 
@@ -325,6 +324,8 @@ This wouldn't be possible without the following people
   	The GUI for T8 Compiler.
 * [Muzzman](https://discord.gg/muzzman)
   	Compiled for PS4 and Tested.
+* [ZombieSlayaMr](https://www.youtube.com/@zombieslayamr)
+  Provided the video guide for code Injection
 
 * several community members supplied the unhashed weapon names. 
 
